@@ -1,37 +1,15 @@
-// import {Routes} from "@angular/router";
-// import {ListComponent} from "./list";
-// import {DetailComponent} from "./detail";
-// import {EditComponent} from "./edit";
-//
-// export const rootRouterConfig: Routes = [
-// {
-//     path: "",
-//     redirectTo: "list",
-//     pathMatch: "full"
-// },
-// {
-//     path: "list",
-//     component: "ListComponent"
-// },
-//
-// {
-//     path: "list/:id",
-//     component: "DetailComponent"
-// },
-//
-// {
-//     path: "edit",
-//     component: "EditComponent"
-// },
-//
-// {
-//     path: "edit/:id",
-//     component: "EditComponent"
-// },
-//
-// {
-//     path: "collection",
-//     component: "CollectionComponent"
-// }
-// ]; 
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const list_component_1 = require("./list.component");
+exports.rootRouterConfig = [
+    {
+        path: "",
+        redirectTo: "app",
+        pathMatch: 'full'
+    },
+    {
+        path: "app",
+        component: list_component_1.ContactListComponent
+    }
+];
 //# sourceMappingURL=app.router.js.map

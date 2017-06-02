@@ -1,6 +1,10 @@
 var webpack = require('webpack');
 var path = require('path');
 
+var basePath = path.join(__dirname, 'src');
+
+console.log('basePath:' + basePath)
+
 module.exports = {
     entry: './src/main.ts',
     output: {
