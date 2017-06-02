@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,17 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = require("@angular/core");
-const http_1 = require("@angular/http");
-require("rxjs/add/operator/map");
+import { Injectable } from "@angular/core";
+import { Http, RequestOptions, Headers } from "@angular/http";
+import 'rxjs/add/operator/map';
 const CONTACT_URL = `contacts.json`;
 let ContactService = class ContactService {
     constructor(http) {
         this.http = http;
     }
     request(url, opts) {
-        return this.http.request(url, new http_1.RequestOptions(opts)).map(res => {
+        return this.http.request(url, new RequestOptions(opts)).map(res => {
             let _res = res.json();
             if (opts.id) {
                 for (let i = 0; i < _res.length; i++) {
@@ -49,14 +47,14 @@ let ContactService = class ContactService {
     }
     addContact(obj = {}) {
         let body = JSON.stringify(obj);
-        let headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        let options = new http_1.RequestOptions({ headers: headers });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
         return this.http.post(CONTACT_URL, body, options).map(res => res.json());
     }
 };
 ContactService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
+    Injectable(),
+    __metadata("design:paramtypes", [Http])
 ], ContactService);
-exports.ContactService = ContactService;
+export { ContactService };
 //# sourceMappingURL=contact.service.js.map
